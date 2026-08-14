@@ -28,6 +28,8 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
+import javax.swing.JToggleButton;
+import javax.swing.JList;
 
 public class Main extends JFrame {
 
@@ -92,6 +94,12 @@ public class Main extends JFrame {
 		panel.add(lblNewLabel_1);
 
 		JButton btnFornecedores = new JButton(" Fornecedores");
+		btnFornecedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmFornecedor fornecedor = new frmFornecedor();
+				fornecedor.setVisible(true);
+			}
+		});
 		btnFornecedores.setBorderPainted(false);
 		btnFornecedores.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFornecedores.setBorder(UIManager.getBorder("Button.border"));
@@ -109,11 +117,11 @@ public class Main extends JFrame {
 		btnProdutos.setBounds(10, 171, 178, 52);
 		panel.add(btnProdutos);
 
-		JButton btnStarGame = new JButton(" StarGame       ");
+		JButton btnStarGame = new JButton(" PDV            ");
 		btnStarGame.setBorderPainted(false);
 		btnStarGame.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnStarGame.setIcon(new ImageIcon(Main.class.getResource("/img/nucleus.png")));
-		btnStarGame.setFont(new Font("Scope One", Font.BOLD, 16));
+		btnStarGame.setFont(new Font("Scope One", Font.BOLD, 18));
 		btnStarGame.setBounds(10, 234, 178, 52);
 		panel.add(btnStarGame);
 
@@ -175,11 +183,13 @@ public class Main extends JFrame {
 
 		JLabel lblMySQL = new JLabel(" MySQL Desconectado");
 		lblMySQL.setIcon(new ImageIcon(Main.class.getResource("/img/database.png")));
-		lblMySQL.setBounds(10, 0, 157, 25);
+		lblMySQL.setBounds(0, 4, 157, 25);
 		panel_1.add(lblMySQL);
 		
-		JLabel lblNewLabel_2 = new JLabel("\"bolinha\"");
-		lblNewLabel_2.setBounds(158, 5, 20, 14);
+		JLabel lblNewLabel_2 = new JLabel("•");
+		lblNewLabel_2.setForeground(new Color(255, 0, 0));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setBounds(144, 4, 42, 21);
 		panel_1.add(lblNewLabel_2);
 
 		JPanel panel_2 = new JPanel();
@@ -211,7 +221,7 @@ public class Main extends JFrame {
 
 		JLabel lblProdutos = new JLabel("");
 		lblProdutos.setIcon(new ImageIcon(Main.class.getResource("/img/box.png")));
-		lblProdutos.setBounds(10, 9, 39, 39);
+		lblProdutos.setBounds(10, 9, 33, 33);
 		panel_Produtos.add(lblProdutos);
 
 		JLabel lblProdutos1 = new JLabel("Produtos");
@@ -228,12 +238,6 @@ public class Main extends JFrame {
 		lblNewLabel_10.setBounds(50, 104, 80, 27);
 		panel_Produtos.add(lblNewLabel_10);
 
-		JLabel lblNewLabel_11 = new JLabel("6");
-		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		lblNewLabel_11.setForeground(SystemColor.textHighlight);
-		lblNewLabel_11.setBounds(65, 46, 73, 36);
-		panel_Produtos.add(lblNewLabel_11);
-
 		JPanel panel_Estoque_baixo = new JPanel();
 		panel_Estoque_baixo.setBounds(401, 85, 174, 131);
 		contentPane.add(panel_Estoque_baixo);
@@ -241,7 +245,7 @@ public class Main extends JFrame {
 
 		JLabel lblEstoquebaixo = new JLabel("");
 		lblEstoquebaixo.setIcon(new ImageIcon(Main.class.getResource("/img/alert.png")));
-		lblEstoquebaixo.setBounds(10, 6, 48, 49);
+		lblEstoquebaixo.setBounds(10, 6, 33, 33);
 		panel_Estoque_baixo.add(lblEstoquebaixo);
 
 		JLabel lblEstoquebaixo1 = new JLabel("Estoque baixo");
@@ -249,12 +253,6 @@ public class Main extends JFrame {
 		lblEstoquebaixo1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblEstoquebaixo1.setBounds(43, 6, 131, 41);
 		panel_Estoque_baixo.add(lblEstoquebaixo1);
-
-		JLabel lblNewLabel_11_1 = new JLabel("2");
-		lblNewLabel_11_1.setForeground(new Color(255, 215, 0));
-		lblNewLabel_11_1.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		lblNewLabel_11_1.setBounds(67, 46, 73, 36);
-		panel_Estoque_baixo.add(lblNewLabel_11_1);
 
 		JLabel lblNewLabel_9_1 = new JLabel("Produtos com estoque");
 		lblNewLabel_9_1.setBounds(43, 79, 131, 50);
@@ -271,7 +269,7 @@ public class Main extends JFrame {
 		
 		JLabel lblSemestoque = new JLabel("");
 		lblSemestoque.setIcon(new ImageIcon(Main.class.getResource("/img/out-of-stock.png")));
-		lblSemestoque.setBounds(10, 6, 43, 44);
+		lblSemestoque.setBounds(10, 6, 33, 33);
 		panel_Sem_estoque.add(lblSemestoque);
 		
 		JLabel lblSemestoque1 = new JLabel("Sem estoque");
@@ -279,12 +277,6 @@ public class Main extends JFrame {
 		lblSemestoque1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblSemestoque1.setBounds(46, 3, 121, 41);
 		panel_Sem_estoque.add(lblSemestoque1);
-		
-		JLabel lblNewLabel_11_1_2 = new JLabel("0");
-		lblNewLabel_11_1_2.setForeground(Color.RED);
-		lblNewLabel_11_1_2.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		lblNewLabel_11_1_2.setBounds(58, 46, 73, 36);
-		panel_Sem_estoque.add(lblNewLabel_11_1_2);
 		
 		JLabel lblNewLabel_9_1_1 = new JLabel("Produtos sem estoque");
 		lblNewLabel_9_1_1.setBounds(43, 81, 131, 50);
@@ -298,7 +290,7 @@ public class Main extends JFrame {
 		JLabel lblVendashoje = new JLabel("");
 		lblVendashoje.setBorder(new EmptyBorder(0, 0, 0, 0));
 		lblVendashoje.setIcon(new ImageIcon(Main.class.getResource("/img/online-shopping.png")));
-		lblVendashoje.setBounds(10, 11, 52, 38);
+		lblVendashoje.setBounds(10, 11, 33, 33);
 		panel_Vendas_hoje.add(lblVendashoje);
 		
 		JLabel lblVendashoje1 = new JLabel("Vendas hoje");
@@ -306,12 +298,6 @@ public class Main extends JFrame {
 		lblVendashoje1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblVendashoje1.setBounds(49, 6, 97, 41);
 		panel_Vendas_hoje.add(lblVendashoje1);
-		
-		JLabel lblNewLabel_11_2 = new JLabel("7");
-		lblNewLabel_11_2.setForeground(Color.GREEN);
-		lblNewLabel_11_2.setFont(new Font("Tahoma", Font.PLAIN, 32));
-		lblNewLabel_11_2.setBounds(63, 45, 73, 36);
-		panel_Vendas_hoje.add(lblNewLabel_11_2);
 		
 		JLabel lblNewLabel_9_1_2 = new JLabel("Total de vendas");
 		lblNewLabel_9_1_2.setBounds(49, 79, 131, 50);
@@ -328,18 +314,42 @@ public class Main extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/img/cart.png")));
-		lblNewLabel.setBounds(10, 11, 46, 33);
+		lblNewLabel.setBounds(10, 11, 33, 33);
 		panel_Itens_vendidos_hoje.add(lblNewLabel);
 		
-		JLabel lblItendVendidoshoje = new JLabel("Itend vendidos hoje");
+		JLabel lblItendVendidoshoje = new JLabel("Itend vendidos");
 		lblItendVendidoshoje.setForeground(new Color(148, 0, 211));
-		lblItendVendidoshoje.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblItendVendidoshoje.setBounds(44, 3, 197, 41);
+		lblItendVendidoshoje.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblItendVendidoshoje.setBounds(50, 0, 197, 41);
 		panel_Itens_vendidos_hoje.add(lblItendVendidoshoje);
+		
+		JLabel lblHoje = new JLabel("hoje");
+		lblHoje.setForeground(new Color(148, 0, 211));
+		lblHoje.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblHoje.setBounds(51, 14, 197, 41);
+		panel_Itens_vendidos_hoje.add(lblHoje);
 
 		JPanel panel_Faturamento = new JPanel();
 		panel_Faturamento.setBounds(591, 227, 174, 131);
 		contentPane.add(panel_Faturamento);
+		panel_Faturamento.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(Main.class.getResource("/img/currency.png")));
+		lblNewLabel_3.setBounds(10, 11, 33, 33);
+		panel_Faturamento.add(lblNewLabel_3);
+		
+		JLabel lblFaturamento = new JLabel("Faturamento");
+		lblFaturamento.setForeground(new Color(72, 209, 204));
+		lblFaturamento.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblFaturamento.setBounds(48, 0, 197, 41);
+		panel_Faturamento.add(lblFaturamento);
+		
+		JLabel lblHoje_1 = new JLabel("hoje");
+		lblHoje_1.setForeground(new Color(72, 209, 204));
+		lblHoje_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblHoje_1.setBounds(48, 15, 197, 41);
+		panel_Faturamento.add(lblHoje_1);
 
 		JLabel lblCalendario = new JLabel("");
 		lblCalendario.setIcon(new ImageIcon(Main.class.getResource("/img/calendar.png")));

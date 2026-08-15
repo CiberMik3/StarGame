@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.EventQueue;
+
 import java.awt.Toolkit;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.formdev.flatlaf.FlatLightLaf;
+
+import database.Database;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -36,6 +40,10 @@ public class Main extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblData;
+
+	// criação de um objeto para lidar com a conexao
+	Database db = new Database();
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Launch the application.
@@ -139,8 +147,9 @@ public class Main extends JFrame {
 		btnSair.addActionListener(new ActionListener() {
 			// quando clicar no botao
 			public void actionPerformed(ActionEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente sair do sistema", "Confirmar saída", JOptionPane.YES_NO_OPTION);
-				//apoio ao intendimento da logica
+				int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente sair do sistema",
+						"Confirmar saída", JOptionPane.YES_NO_OPTION);
+				// apoio ao intendimento da logica
 				System.out.println(resposta);
 				if (resposta == 0) {
 					System.exit(0);
@@ -155,7 +164,7 @@ public class Main extends JFrame {
 		JButton btnSobre = new JButton(" Sobre           ");
 		btnSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//ativar a tela sobre
+				// ativar a tela sobre
 				Sobre sobre = new Sobre();
 				sobre.setVisible(true);
 			}
@@ -181,15 +190,15 @@ public class Main extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 
-		JLabel lblMySQL = new JLabel(" MySQL Desconectado");
-		lblMySQL.setIcon(new ImageIcon(Main.class.getResource("/img/database.png")));
-		lblMySQL.setBounds(0, 4, 157, 25);
-		panel_1.add(lblMySQL);
-		
-		JLabel lblNewLabel_2 = new JLabel("•");
+		JLabel lblMysql = new JLabel(" MySQL Desconectado");
+		lblMysql.setIcon(new ImageIcon(Main.class.getResource("/img/database.png")));
+		lblMysql.setBounds(0, 4, 157, 25);
+		panel_1.add(lblMysql);
+
+		lblNewLabel_2 = new JLabel("•");
 		lblNewLabel_2.setForeground(new Color(255, 0, 0));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(144, 4, 42, 21);
+		lblNewLabel_2.setBounds(151, 3, 28, 19);
 		panel_1.add(lblNewLabel_2);
 
 		JPanel panel_2 = new JPanel();
@@ -266,18 +275,18 @@ public class Main extends JFrame {
 		panel_Sem_estoque.setBounds(589, 85, 174, 131);
 		contentPane.add(panel_Sem_estoque);
 		panel_Sem_estoque.setLayout(null);
-		
+
 		JLabel lblSemestoque = new JLabel("");
 		lblSemestoque.setIcon(new ImageIcon(Main.class.getResource("/img/out-of-stock.png")));
 		lblSemestoque.setBounds(10, 6, 33, 33);
 		panel_Sem_estoque.add(lblSemestoque);
-		
+
 		JLabel lblSemestoque1 = new JLabel("Sem estoque");
 		lblSemestoque1.setForeground(Color.RED);
 		lblSemestoque1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblSemestoque1.setBounds(46, 3, 121, 41);
 		panel_Sem_estoque.add(lblSemestoque1);
-		
+
 		JLabel lblNewLabel_9_1_1 = new JLabel("Produtos sem estoque");
 		lblNewLabel_9_1_1.setBounds(43, 81, 131, 50);
 		panel_Sem_estoque.add(lblNewLabel_9_1_1);
@@ -286,23 +295,23 @@ public class Main extends JFrame {
 		panel_Vendas_hoje.setBounds(213, 227, 174, 131);
 		contentPane.add(panel_Vendas_hoje);
 		panel_Vendas_hoje.setLayout(null);
-		
+
 		JLabel lblVendashoje = new JLabel("");
 		lblVendashoje.setBorder(new EmptyBorder(0, 0, 0, 0));
 		lblVendashoje.setIcon(new ImageIcon(Main.class.getResource("/img/online-shopping.png")));
 		lblVendashoje.setBounds(10, 11, 33, 33);
 		panel_Vendas_hoje.add(lblVendashoje);
-		
+
 		JLabel lblVendashoje1 = new JLabel("Vendas hoje");
 		lblVendashoje1.setForeground(Color.GREEN);
 		lblVendashoje1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblVendashoje1.setBounds(49, 6, 97, 41);
 		panel_Vendas_hoje.add(lblVendashoje1);
-		
+
 		JLabel lblNewLabel_9_1_2 = new JLabel("Total de vendas");
 		lblNewLabel_9_1_2.setBounds(49, 79, 131, 50);
 		panel_Vendas_hoje.add(lblNewLabel_9_1_2);
-		
+
 		JLabel lblNewLabel_9_2_1 = new JLabel("realizadas hoje");
 		lblNewLabel_9_2_1.setBounds(49, 92, 112, 50);
 		panel_Vendas_hoje.add(lblNewLabel_9_2_1);
@@ -311,18 +320,18 @@ public class Main extends JFrame {
 		panel_Itens_vendidos_hoje.setBounds(401, 226, 174, 131);
 		contentPane.add(panel_Itens_vendidos_hoje);
 		panel_Itens_vendidos_hoje.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Main.class.getResource("/img/cart.png")));
 		lblNewLabel.setBounds(10, 11, 33, 33);
 		panel_Itens_vendidos_hoje.add(lblNewLabel);
-		
+
 		JLabel lblItendVendidoshoje = new JLabel("Itend vendidos");
 		lblItendVendidoshoje.setForeground(new Color(148, 0, 211));
 		lblItendVendidoshoje.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblItendVendidoshoje.setBounds(50, 0, 197, 41);
 		panel_Itens_vendidos_hoje.add(lblItendVendidoshoje);
-		
+
 		JLabel lblHoje = new JLabel("hoje");
 		lblHoje.setForeground(new Color(148, 0, 211));
 		lblHoje.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -333,18 +342,18 @@ public class Main extends JFrame {
 		panel_Faturamento.setBounds(591, 227, 174, 131);
 		contentPane.add(panel_Faturamento);
 		panel_Faturamento.setLayout(null);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon(Main.class.getResource("/img/currency.png")));
 		lblNewLabel_3.setBounds(10, 11, 33, 33);
 		panel_Faturamento.add(lblNewLabel_3);
-		
+
 		JLabel lblFaturamento = new JLabel("Faturamento");
 		lblFaturamento.setForeground(new Color(72, 209, 204));
 		lblFaturamento.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblFaturamento.setBounds(48, 0, 197, 41);
 		panel_Faturamento.add(lblFaturamento);
-		
+
 		JLabel lblHoje_1 = new JLabel("hoje");
 		lblHoje_1.setForeground(new Color(72, 209, 204));
 		lblHoje_1.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -370,6 +379,17 @@ public class Main extends JFrame {
 
 		// atualizar data
 		atualizarData();
+
+		// status do banco (mudar texto e cor da bolinha)
+		if (db.testarConexao() == true) {
+			System.out.println("Banco conectado");
+			lblMysql.setText("MySQL Conectado");
+			lblNewLabel_2.setForeground(Color.GREEN);
+		} else {
+			System.out.println("Erro na conexão");
+			lblMysql.setText("MySQL Desconectado");
+			lblNewLabel_2.setForeground(Color.RED);
+		}
 
 	} // FIM DO CONSTRUTOR
 
